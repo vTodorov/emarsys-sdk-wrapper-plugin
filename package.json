@@ -1,5 +1,5 @@
 {
-  "name": "@salurusrinivasarao/emarsys-sdk-wrapper-plugin",
+  "name": "@vtodorov/emarsys-sdk-wrapper-plugin",
   "version": "1.0.4",
   "description": "Custom Capacitor Plugin To have communication with Emarsys SDK",
   "main": "dist/plugin.cjs.js",
@@ -13,7 +13,7 @@
     "ios/Plugin/",
     "SalurusrinivasaraoEmarsysSdkWrapperPlugin.podspec"
   ],
-  "author": "srinivassaluru",
+  "author": "vTodorov",
   "license": "MIT",
   "repository": {
     "type": "git",
