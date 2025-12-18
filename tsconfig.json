@@ -1,20 +1,26 @@
 {
   "compilerOptions": {
-    "allowUnreachableCode": false,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "lib": ["ES2020", "DOM"],
+
     "declaration": true,
+    "outDir": "dist/esm",
+
+    "strict": true,
     "esModuleInterop": true,
+
+    "sourceMap": true,
     "inlineSources": true,
-    "lib": ["dom", "es2017"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
+    "pretty": true,
+
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "dist/esm",
-    "pretty": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es2017"
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+
+    "skipLibCheck": true
   },
-  "files": ["src/index.ts"]
+  "include": ["src"]
 }

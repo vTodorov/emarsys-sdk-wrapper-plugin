@@ -1,0 +1,550 @@
+<!DOCTYPE html><html class="default" lang="en" data-base="./"><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@salurusrinivasarao/emarsys-sdk-wrapper-plugin</title><meta name="description" content="Documentation for @salurusrinivasarao/emarsys-sdk-wrapper-plugin"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script defer src="assets/main.js"></script><script async src="assets/icons.js" id="tsd-icons-script"></script><script async src="assets/search.js" id="tsd-search-script"></script><script async src="assets/navigation.js" id="tsd-nav-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => window.app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><a href="index.html" class="title">@salurusrinivasarao/emarsys-sdk-wrapper-plugin</a><div id="tsd-toolbar-links"></div><button id="tsd-search-trigger" class="tsd-widget" aria-label="Search"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-search"></use></svg></button><dialog id="tsd-search" aria-label="Search"><input role="combobox" id="tsd-search-input" aria-controls="tsd-search-results" aria-autocomplete="list" aria-expanded="true" autocapitalize="off" autocomplete="off" placeholder="Search the docs" maxLength="100"/><ul role="listbox" id="tsd-search-results"></ul><div id="tsd-search-status" aria-live="polite" aria-atomic="true"><div>Preparing search index...</div></div></dialog><a href="#" class="tsd-widget menu" id="tsd-toolbar-menu-trigger" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-menu"></use></svg></a></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><h1>@salurusrinivasarao/emarsys-sdk-wrapper-plugin</h1></div><div class="tsd-panel tsd-typography"><h1 id="capacitor-emarsys-sdk-plugin" class="tsd-anchor-link">capacitor-emarsys-sdk-plugin<a href="#capacitor-emarsys-sdk-plugin" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h1><p>Custom Capacitor Plugin To have communication with Emarsys SDK</p>
+<h2 id="install" class="tsd-anchor-link">Install<a href="#install" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><pre><code class="bash"><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-2">install</span><span class="hl-1"> </span><span class="hl-2">capacitor-emarsys-sdk-plugin</span><br/><span class="hl-0">npx</span><span class="hl-1"> </span><span class="hl-2">cap</span><span class="hl-1"> </span><span class="hl-2">sync</span>
+</code><button type="button">Copy</button></pre>
+
+<h2 id="api" class="tsd-anchor-link">API<a href="#api" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><docgen-index>
+<ul>
+<li><a href="#echo"><code>echo(...)</code></a></li>
+<li><a href="#addlistenerpushmessageevent-"><code>addListener('pushMessageEvent', ...)</code></a></li>
+<li><a href="#getuuid"><code>getUUID(...)</code></a></li>
+<li><a href="#requestpermissions"><code>requestPermissions()</code></a></li>
+<li><a href="#checkpermissions"><code>checkPermissions()</code></a></li>
+<li><a href="#setcontact"><code>setContact(...)</code></a></li>
+<li><a href="#getpushtoken"><code>getPushToken()</code></a></li>
+<li><a href="#register"><code>register()</code></a></li>
+<li><a href="#checkpermissions"><code>checkPermissions()</code></a></li>
+<li><a href="#clearcontact"><code>clearContact(...)</code></a></li>
+<li><a href="#setpushtokenfirebase"><code>setPushTokenFirebase(...)</code></a></li>
+<li><a href="#setpushmessage"><code>setPushMessage(...)</code></a></li>
+<li><a href="#getuserinfo"><code>getUserInfo(...)</code></a></li>
+<li><a href="#setuser"><code>setUser(...)</code></a></li>
+<li><a href="#clearuser"><code>clearUser()</code></a></li>
+<li><a href="#getdeviceinformation"><code>getDeviceInformation(...)</code></a></li>
+<li><a href="#trackevent"><code>trackEvent(...)</code></a></li>
+<li><a href="#loadinlineinapp"><code>loadInlineInapp(...)</code></a></li>
+<li><a href="#addlisteneremarsysinappdeeplink-"><code>addListener('EmarsysInAppDeepLink', ...)</code></a></li>
+<li><a href="#addlisteneremarsysinappapplicationevent-"><code>addListener('EmarsysInAppApplicationEvent', ...)</code></a></li>
+<li><a href="#addlisteneremarsyspushdeeplink-"><code>addListener('EmarsysPushDeepLink', ...)</code></a></li>
+<li><a href="#addlisteneremarsyspushapplicationevent-"><code>addListener('EmarsysPushApplicationEvent', ...)</code></a></li>
+<li><a href="#addlisteneremarsyspushnotificationreceived-"><code>addListener('EmarsysPushNotificationReceived', ...)</code></a></li>
+<li><a href="#interfaces">Interfaces</a></li>
+<li><a href="#type-aliases">Type Aliases</a></li>
+</ul>
+</docgen-index>
+<docgen-api>
+<!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
+<h3 id="echo" class="tsd-anchor-link">echo(...)<a href="#echo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">echo</span><span class="hl-1">(</span><span class="hl-3">options</span><span class="hl-1">: { </span><span class="hl-3">value:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1">; }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">string</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code>{ value: string; }</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: string; }&gt;</code></p>
+<hr>
+<h3 id="addlistenerpushmessageevent-" class="tsd-anchor-link">addListener('pushMessageEvent', ...)<a href="#addlistenerpushmessageevent-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;pushMessageEvent&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'pushMessageEvent'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="getuuid" class="tsd-anchor-link">getUUID(...)<a href="#getuuid" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">getUUID</span><span class="hl-1">(</span><span class="hl-3">value</span><span class="hl-1">: </span><span class="hl-3">string</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">string</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>value</code></strong></td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: string; }&gt;</code></p>
+<hr>
+<h3 id="requestpermissions" class="tsd-anchor-link">requestPermissions()<a href="#requestpermissions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">requestPermissions</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PermissionStatus</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Returns:</strong> <code>Promise&lt;any&gt;</code></p>
+<hr>
+<h3 id="checkpermissions" class="tsd-anchor-link">checkPermissions()<a href="#checkpermissions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">checkPermissions</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PermissionStatus</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Returns:</strong> <code>Promise&lt;any&gt;</code></p>
+<hr>
+<h3 id="setcontact" class="tsd-anchor-link">setContact(...)<a href="#setcontact" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">setContact</span><span class="hl-1">(</span><span class="hl-3">options</span><span class="hl-1">: </span><span class="hl-3">SetContactOptions</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-4">void</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code><a href="#setcontactoptions">SetContactOptions</a></code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="getpushtoken" class="tsd-anchor-link">getPushToken()<a href="#getpushtoken" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">getPushToken</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">TokenResult</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#tokenresult">TokenResult</a>&gt;</code></p>
+<hr>
+<h3 id="register" class="tsd-anchor-link">register()<a href="#register" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">register</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">TokenResult</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#tokenresult">TokenResult</a>&gt;</code></p>
+<hr>
+<h3 id="checkpermissions-1" class="tsd-anchor-link">checkPermissions()<a href="#checkpermissions-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">checkPermissions</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PermissionStatus</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><strong>Returns:</strong> <code>Promise&lt;any&gt;</code></p>
+<hr>
+<h3 id="clearcontact" class="tsd-anchor-link">clearContact(...)<a href="#clearcontact" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">clearContact</span><span class="hl-1">(</span><span class="hl-3">options</span><span class="hl-1">: </span><span class="hl-3">SetContactOptions</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-4">void</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code><a href="#setcontactoptions">SetContactOptions</a></code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="setpushtokenfirebase" class="tsd-anchor-link">setPushTokenFirebase(...)<a href="#setpushtokenfirebase" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">setPushTokenFirebase</span><span class="hl-1">(</span><span class="hl-3">data</span><span class="hl-1">: { </span><span class="hl-3">value:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1">; }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">ITokenInitializationStatus</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code>{ value: string; }</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#itokeninitializationstatus">ITokenInitializationStatus</a>&gt;</code></p>
+<hr>
+<h3 id="setpushmessage" class="tsd-anchor-link">setPushMessage(...)<a href="#setpushmessage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">setPushMessage</span><span class="hl-1">(</span><span class="hl-3">data</span><span class="hl-1">: </span><span class="hl-3">PushMessageDTO</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">PushMessageDTO</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code><a href="#pushmessagedto">PushMessageDTO</a></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: <a href="#pushmessagedto">PushMessageDTO</a>; }&gt;</code></p>
+<hr>
+<h3 id="getuserinfo" class="tsd-anchor-link">getUserInfo(...)<a href="#getuserinfo" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">getUserInfo</span><span class="hl-1">(</span><span class="hl-3">data</span><span class="hl-1">: </span><span class="hl-3">UserInformationDTO</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">unknown</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code><a href="#userinformationdto">UserInformationDTO</a></code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: unknown; }&gt;</code></p>
+<hr>
+<h3 id="setuser" class="tsd-anchor-link">setUser(...)<a href="#setuser" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">setUser</span><span class="hl-1">(</span><span class="hl-3">data</span><span class="hl-1">: { </span><span class="hl-3">value:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1">; }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-4">void</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code>{ value: string; }</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="clearuser" class="tsd-anchor-link">clearUser()<a href="#clearuser" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">clearUser</span><span class="hl-1">() </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-4">void</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<hr>
+<h3 id="getdeviceinformation" class="tsd-anchor-link">getDeviceInformation(...)<a href="#getdeviceinformation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">getDeviceInformation</span><span class="hl-1">(</span><span class="hl-3">options</span><span class="hl-1">?: { value?</span><span class="hl-3">:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1"> | </span><span class="hl-4">undefined</span><span class="hl-1">; } | </span><span class="hl-4">undefined</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">string</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code>{ value?: string; }</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: string; }&gt;</code></p>
+<hr>
+<h3 id="trackevent" class="tsd-anchor-link">trackEvent(...)<a href="#trackevent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">trackEvent</span><span class="hl-1">(</span><span class="hl-3">options</span><span class="hl-1">?: { </span><span class="hl-3">eventName:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1">; </span><span class="hl-3">eventAttributes</span><span class="hl-1">: </span><span class="hl-3">any</span><span class="hl-1">; } | </span><span class="hl-4">undefined</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;{ </span><span class="hl-6">value</span><span class="hl-1">: </span><span class="hl-3">string</span><span class="hl-1">; }&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>options</code></strong></td>
+<td><code>{ eventName: string; eventAttributes: any; }</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;{ value: string; }&gt;</code></p>
+<hr>
+<h3 id="loadinlineinapp" class="tsd-anchor-link">loadInlineInapp(...)<a href="#loadinlineinapp" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">loadInlineInapp</span><span class="hl-1">(</span><span class="hl-3">data</span><span class="hl-1">: { </span><span class="hl-3">inAppName:</span><span class="hl-1"> </span><span class="hl-3">string</span><span class="hl-1">; }) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-4">void</span><span class="hl-1">&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code>{ inAppName: string; }</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="addlisteneremarsysinappdeeplink-" class="tsd-anchor-link">addListener('EmarsysInAppDeepLink', ...)<a href="#addlisteneremarsysinappdeeplink-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;EmarsysInAppDeepLink&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'EmarsysInAppDeepLink'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="addlisteneremarsysinappapplicationevent-" class="tsd-anchor-link">addListener('EmarsysInAppApplicationEvent', ...)<a href="#addlisteneremarsysinappapplicationevent-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;EmarsysInAppApplicationEvent&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'EmarsysInAppApplicationEvent'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="addlisteneremarsyspushdeeplink-" class="tsd-anchor-link">addListener('EmarsysPushDeepLink', ...)<a href="#addlisteneremarsyspushdeeplink-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;EmarsysPushDeepLink&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'EmarsysPushDeepLink'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="addlisteneremarsyspushapplicationevent-" class="tsd-anchor-link">addListener('EmarsysPushApplicationEvent', ...)<a href="#addlisteneremarsyspushapplicationevent-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;EmarsysPushApplicationEvent&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'EmarsysPushApplicationEvent'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="addlisteneremarsyspushnotificationreceived-" class="tsd-anchor-link">addListener('EmarsysPushNotificationReceived', ...)<a href="#addlisteneremarsyspushnotificationreceived-" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="typescript"><span class="hl-0">addListener</span><span class="hl-1">(</span><span class="hl-3">eventName</span><span class="hl-1">: </span><span class="hl-2">&#39;EmarsysPushNotificationReceived&#39;</span><span class="hl-1">, </span><span class="hl-3">listenerFunc</span><span class="hl-1">: (</span><span class="hl-3">event</span><span class="hl-1">: </span><span class="hl-5">PushMessageEvent</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-4">void</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-5">Promise</span><span class="hl-1">&lt;</span><span class="hl-3">PluginListenerHandle</span><span class="hl-1">&gt; &amp; </span><span class="hl-3">PluginListenerHandle</span>
+</code><button type="button">Copy</button></pre>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>'EmarsysPushNotificationReceived'</code></td>
+</tr>
+<tr>
+<td><strong><code>listenerFunc</code></strong></td>
+<td><code>(event: <a href="#pushmessageevent">PushMessageEvent</a>) =&gt; void</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <code>Promise&lt;<a href="#pluginlistenerhandle">PluginListenerHandle</a>&gt; &amp; <a href="#pluginlistenerhandle">PluginListenerHandle</a></code></p>
+<hr>
+<h3 id="interfaces" class="tsd-anchor-link">Interfaces<a href="#interfaces" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><h4 id="pluginlistenerhandle" class="tsd-anchor-link">PluginListenerHandle<a href="#pluginlistenerhandle" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>remove</code></strong></td>
+<td><code>() =&gt; Promise&lt;void&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="pushmessageevent" class="tsd-anchor-link">PushMessageEvent<a href="#pushmessageevent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>eventName</code></strong></td>
+<td><code>string</code></td>
+<td>1.0.0</td>
+</tr>
+<tr>
+<td><strong><code>data</code></strong></td>
+<td><code>{ key: string; value: string; }[]</code></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="permissionstatus" class="tsd-anchor-link">PermissionStatus<a href="#permissionstatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>receive</code></strong></td>
+<td><code><a href="#permissionstate">PermissionState</a></code></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="setcontactoptions" class="tsd-anchor-link">SetContactOptions<a href="#setcontactoptions" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>contactFieldValue</code></strong></td>
+<td><code>string</code></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tokenresult" class="tsd-anchor-link">TokenResult<a href="#tokenresult" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+<th>Since</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>token</code></strong></td>
+<td><code>string</code></td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="itokeninitializationstatus" class="tsd-anchor-link">ITokenInitializationStatus<a href="#itokeninitializationstatus" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>status</code></strong></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><strong><code>isError</code></strong></td>
+<td><code>boolean</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="pushmessagedto" class="tsd-anchor-link">PushMessageDTO<a href="#pushmessagedto" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>title</code></strong></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><strong><code>text</code></strong></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><strong><code>image</code></strong></td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="userinformationdto" class="tsd-anchor-link">UserInformationDTO<a href="#userinformationdto" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><table>
+<thead>
+<tr>
+<th>Prop</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>firebaseToken</code></strong></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><strong><code>userId</code></strong></td>
+<td><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="type-aliases" class="tsd-anchor-link">Type Aliases<a href="#type-aliases" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><h4 id="permissionstate" class="tsd-anchor-link">PermissionState<a href="#permissionstate" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h4><p><code>'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'</code></p>
+</docgen-api></div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="assets/icons.svg#icon-chevronDown"></use></svg><h3>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#capacitor-emarsys-sdk-plugin"><span>capacitor-<wbr/>emarsys-<wbr/>sdk-<wbr/>plugin</span></a><ul><li><a href="#install"><span>Install</span></a></li><li><a href="#api"><span>API</span></a></li><li><ul><li><a href="#echo"><span>echo(...)</span></a></li><li><a href="#addlistenerpushmessageevent-"><span>add<wbr/>Listener(&#39;push<wbr/>Message<wbr/>Event&#39;, ...)</span></a></li><li><a href="#getuuid"><span>get<wbr/>UUID(...)</span></a></li><li><a href="#requestpermissions"><span>request<wbr/>Permissions()</span></a></li><li><a href="#checkpermissions"><span>check<wbr/>Permissions()</span></a></li><li><a href="#setcontact"><span>set<wbr/>Contact(...)</span></a></li><li><a href="#getpushtoken"><span>get<wbr/>Push<wbr/>Token()</span></a></li><li><a href="#register"><span>register()</span></a></li><li><a href="#checkpermissions-1"><span>check<wbr/>Permissions()</span></a></li><li><a href="#clearcontact"><span>clear<wbr/>Contact(...)</span></a></li><li><a href="#setpushtokenfirebase"><span>set<wbr/>Push<wbr/>Token<wbr/>Firebase(...)</span></a></li><li><a href="#setpushmessage"><span>set<wbr/>Push<wbr/>Message(...)</span></a></li><li><a href="#getuserinfo"><span>get<wbr/>User<wbr/>Info(...)</span></a></li><li><a href="#setuser"><span>set<wbr/>User(...)</span></a></li><li><a href="#clearuser"><span>clear<wbr/>User()</span></a></li><li><a href="#getdeviceinformation"><span>get<wbr/>Device<wbr/>Information(...)</span></a></li><li><a href="#trackevent"><span>track<wbr/>Event(...)</span></a></li><li><a href="#loadinlineinapp"><span>load<wbr/>Inline<wbr/>Inapp(...)</span></a></li><li><a href="#addlisteneremarsysinappdeeplink-"><span>add<wbr/>Listener(&#39;<wbr/>Emarsys<wbr/>In<wbr/>App<wbr/>Deep<wbr/>Link&#39;, ...)</span></a></li><li><a href="#addlisteneremarsysinappapplicationevent-"><span>add<wbr/>Listener(&#39;<wbr/>Emarsys<wbr/>In<wbr/>App<wbr/>Application<wbr/>Event&#39;, ...)</span></a></li><li><a href="#addlisteneremarsyspushdeeplink-"><span>add<wbr/>Listener(&#39;<wbr/>Emarsys<wbr/>Push<wbr/>Deep<wbr/>Link&#39;, ...)</span></a></li><li><a href="#addlisteneremarsyspushapplicationevent-"><span>add<wbr/>Listener(&#39;<wbr/>Emarsys<wbr/>Push<wbr/>Application<wbr/>Event&#39;, ...)</span></a></li><li><a href="#addlisteneremarsyspushnotificationreceived-"><span>add<wbr/>Listener(&#39;<wbr/>Emarsys<wbr/>Push<wbr/>Notification<wbr/>Received&#39;, ...)</span></a></li><li><a href="#interfaces"><span>Interfaces</span></a></li><li><ul><li><a href="#pluginlistenerhandle"><span>Plugin<wbr/>Listener<wbr/>Handle</span></a></li><li><a href="#pushmessageevent"><span>Push<wbr/>Message<wbr/>Event</span></a></li><li><a href="#permissionstatus"><span>Permission<wbr/>Status</span></a></li><li><a href="#setcontactoptions"><span>Set<wbr/>Contact<wbr/>Options</span></a></li><li><a href="#tokenresult"><span>Token<wbr/>Result</span></a></li><li><a href="#itokeninitializationstatus"><span>I<wbr/>Token<wbr/>Initialization<wbr/>Status</span></a></li><li><a href="#pushmessagedto"><span>Push<wbr/>Message<wbr/>DTO</span></a></li><li><a href="#userinformationdto"><span>User<wbr/>Information<wbr/>DTO</span></a></li></ul></li><li><a href="#type-aliases"><span>Type <wbr/>Aliases</span></a></li><li><ul><li><a href="#permissionstate"><span>Permission<wbr/>State</span></a></li></ul></li></ul></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="modules.html">@salurusrinivasarao/emarsys-sdk-wrapper-plugin</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer><p class="tsd-generator">Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></footer><div class="overlay"></div></body></html>

@@ -1,13 +1,10 @@
 /// <reference types="@capacitor/cli" />
 
-import type {
-  SetContactOptions
-} from './interfaces/base';
-import type { PluginListenerHandle } from '@capacitor/core';
+import type { PluginListenerHandle, PermissionState } from '@capacitor/core';
 
+import type { SetContactOptions } from './interfaces/base';
 import type { PushMessageEvent, TokenResult } from './interfaces/push';
 import type { ITokenInitializationStatus, PushMessageDTO, UserInformationDTO } from './interfaces/pushAndroid';
-
 
 type ConsoleLogLevels = 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'basic';
 
@@ -22,79 +19,97 @@ declare module '@capacitor/cli' {
 }
 
 export interface EmarsysSDKCustomPlugin {
-  
+  /**
+   * Echo test method
+   */
   echo(options: { value: string }): Promise<{ value: string }>;
-  
-  addListener(
-    eventName: 'pushMessageEvent',
-    listenerFunc: (event: PushMessageEvent) => void
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
 
+  /**
+   * Get device UUID
+   */
   getUUID(value: string): Promise<{ value: string }>;
 
-  
-  requestPermissions(): Promise<PermissionStatus>;
+  /**
+   * Request push notification permissions
+   */
+  requestPermissions(): Promise<PermissionState>;
 
-  checkPermissions(): Promise<PermissionStatus>;
+  /**
+   * Check push notification permissions
+   */
+  checkPermissions(): Promise<PermissionState>;
 
+  /**
+   * Set Emarsys contact
+   */
   setContact(options: SetContactOptions): Promise<void>;
 
-  getPushToken(): Promise<TokenResult>;
-
-  register(): Promise<TokenResult>;
-
-  checkPermissions(): Promise<PermissionStatus>;
-
+  /**
+   * Clear Emarsys contact
+   */
   clearContact(options: SetContactOptions): Promise<void>;
 
+  /**
+   * Get push token
+   */
+  getPushToken(): Promise<TokenResult>;
 
-  //----for android
-  setPushTokenFirebase(data: {
-    value: string;
-  }): Promise<ITokenInitializationStatus>;
+  /**
+   * Register for push notifications
+   */
+  register(): Promise<TokenResult>;
 
-  
+  /**
+   * Track custom event
+   */
+  trackEvent(options?: { eventName: string; eventAttributes: any }): Promise<{ value: string }>;
+
+  /**
+   * Android: set Firebase push token
+   */
+  setPushTokenFirebase(data: { value: string }): Promise<ITokenInitializationStatus>;
+
+  /**
+   * Android: set push message
+   */
   setPushMessage(data: PushMessageDTO): Promise<{ value: PushMessageDTO }>;
+
+  /**
+   * Android: get user information
+   */
   getUserInfo(data: UserInformationDTO): Promise<{ value: unknown }>;
 
-  setUser(data: {
-    value: string;
-  }): Promise<void>;
+  /**
+   * Set user identifier
+   */
+  setUser(data: { value: string }): Promise<void>;
 
-  clearUser():Promise<void>;
+  /**
+   * Clear user
+   */
+  clearUser(): Promise<void>;
 
-  getDeviceInformation(options?: {
-    value?: string;
-  }): Promise<{ value: string }>;
+  /**
+   * Get device information
+   */
+  getDeviceInformation(options?: { value?: string }): Promise<{ value: string }>;
 
-  trackEvent(options?: { eventName: string, eventAttributes: any }): Promise<{ value: string }>;
+  /**
+   * Load inline in-app message
+   */
   loadInlineInapp(data: { inAppName: string }): Promise<void>;
 
+  /**
+   * Listen to Emarsys events
+   */
   addListener(
-    eventName: 'EmarsysInAppDeepLink',
+    eventName:
+      | 'pushMessageEvent'
+      | 'EmarsysInAppDeepLink'
+      | 'EmarsysInAppApplicationEvent'
+      | 'EmarsysPushDeepLink'
+      | 'EmarsysPushApplicationEvent'
+      | 'EmarsysPushNotificationReceived',
     listenerFunc: (event: PushMessageEvent) => void,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
-  addListener(
-    eventName: 'EmarsysInAppApplicationEvent',
-    listenerFunc: (event: PushMessageEvent) => void,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
-  addListener(
-    eventName: 'EmarsysPushDeepLink',
-    listenerFunc: (event: PushMessageEvent) => void,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
-  addListener(
-    eventName: 'EmarsysPushApplicationEvent',
-    listenerFunc: (event: PushMessageEvent) => void,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
-  addListener(
-    eventName: 'EmarsysPushNotificationReceived',
-    listenerFunc: (event: PushMessageEvent) => void,
-  ): Promise<PluginListenerHandle> & PluginListenerHandle;
-
-// --------------------------
-
 }

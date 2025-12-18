@@ -14,7 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
-* [`addListener('pushMessageEvent', ...)`](#addlistenerpushmessageevent)
+* [`addListener('pushMessageEvent', ...)`](#addlistenerpushmessageevent-)
 * [`getUUID(...)`](#getuuid)
 * [`requestPermissions()`](#requestpermissions)
 * [`checkPermissions()`](#checkpermissions)
@@ -31,11 +31,11 @@ npx cap sync
 * [`getDeviceInformation(...)`](#getdeviceinformation)
 * [`trackEvent(...)`](#trackevent)
 * [`loadInlineInapp(...)`](#loadinlineinapp)
-* [`addListener('EmarsysInAppDeepLink', ...)`](#addlisteneremarsysinappdeeplink)
-* [`addListener('EmarsysInAppApplicationEvent', ...)`](#addlisteneremarsysinappapplicationevent)
-* [`addListener('EmarsysPushDeepLink', ...)`](#addlisteneremarsyspushdeeplink)
-* [`addListener('EmarsysPushApplicationEvent', ...)`](#addlisteneremarsyspushapplicationevent)
-* [`addListener('EmarsysPushNotificationReceived', ...)`](#addlisteneremarsyspushnotificationreceived)
+* [`addListener('EmarsysInAppDeepLink', ...)`](#addlisteneremarsysinappdeeplink-)
+* [`addListener('EmarsysInAppApplicationEvent', ...)`](#addlisteneremarsysinappapplicationevent-)
+* [`addListener('EmarsysPushDeepLink', ...)`](#addlisteneremarsyspushdeeplink-)
+* [`addListener('EmarsysPushApplicationEvent', ...)`](#addlisteneremarsyspushapplicationevent-)
+* [`addListener('EmarsysPushNotificationReceived', ...)`](#addlisteneremarsyspushnotificationreceived-)
 * [Interfaces](#interfaces)
 * [Type Aliases](#type-aliases)
 

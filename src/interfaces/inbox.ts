@@ -1,12 +1,6 @@
 interface InboxMessageBaseAction {
-  /**
-   * @since 1.0.0
-   */
-  id: string;
 
-  /**
-   * @since 1.0.0
-   */
+  id: string;
   title: string;
 
   /**
