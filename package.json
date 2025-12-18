@@ -17,10 +17,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/srinivassaluru/emarsys-sdk-wrapper-plugin.git"
+    "url": "git+https://github.com/vTodorov/emarsys-sdk-wrapper-plugin"
   },
   "bugs": {
-    "url": "https://github.com/srinivassaluru/emarsys-sdk-wrapper-plugin.git/issues"
+    "url": "https://github.com/vTodorov/emarsys-sdk-wrapper-plugin.git/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -79,7 +79,7 @@
       "src": "android"
     }
   },
-  "homepage": "https://github.com/srinivassaluru/emarsys-sdk-wrapper-plugin#readme",
+  "homepage": "https://github.com/vTodorov/emarsys-sdk-wrapper-plugin#readme",
   "directories": {
     "example": "example"
   }
