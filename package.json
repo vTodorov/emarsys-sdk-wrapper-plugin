@@ -11,7 +11,7 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "SalurusrinivasaraoEmarsysSdkWrapperPlugin.podspec"
+    "VtodorovEmarsysSdkWrapperPlugin.podspec"
   ],
   "author": "vTodorov",
   "license": "MIT",
