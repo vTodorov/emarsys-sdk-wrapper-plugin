@@ -47,7 +47,7 @@ export interface EmarsysSDKCustomPlugin {
   /**
    * Clear Emarsys contact
    */
-  clearContact(options: SetContactOptions): Promise<void>;
+  clearContact(): Promise<void>;
 
   /**
    * Get push token
@@ -78,16 +78,6 @@ export interface EmarsysSDKCustomPlugin {
    * Android: get user information
    */
   getUserInfo(data: UserInformationDTO): Promise<{ value: unknown }>;
-
-  /**
-   * Set user identifier
-   */
-  setUser(data: { value: string }): Promise<void>;
-
-  /**
-   * Clear user
-   */
-  clearUser(): Promise<void>;
 
   /**
    * Get device information

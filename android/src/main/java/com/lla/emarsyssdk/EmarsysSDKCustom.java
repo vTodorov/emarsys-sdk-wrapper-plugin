@@ -18,12 +18,4 @@ public class EmarsysSDKCustom {
         Log.i("initializeEmarsys", value);
         return value;
     }
-
-    public void setUser(String value) {
-        Log.i("setUser ", value);
-    }
-
-    public void clearUser(String value) {
-        Log.i("clearUser ", value);
-    }
 }

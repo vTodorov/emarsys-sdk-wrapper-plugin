@@ -111,18 +111,17 @@ public class EmarsysSDKCustomPlugin extends Plugin {
     }
 
     @PluginMethod
-    public void setUser(PluginCall call) {
-        String value = call.getString("value");
-        Integer fieldId = 3;
-        Emarsys.setContact(fieldId, value );
+    public void setContact(PluginCall call) {
+        Integer contactFieldId = call.getString("contactFieldId");
+        String contactFieldValue = call.getString("contactFieldValue");
+        Emarsys.setContact(contactFieldId, contactFieldValue );
     }
 
     //Use the clearContact method to remove the device details from the contact record,
     //for example, if the user signs out of the app,
     //and they should not receive personalised messages. The CompletionListener is optional.
     @PluginMethod
-    public void clearUser(PluginCall call) {
-        String value = call.getString("value");
+    public void clearContact(PluginCall call) {
         Emarsys.clearContact();
     }
 
