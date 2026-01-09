@@ -114,7 +114,14 @@ public class EmarsysSDKCustomPlugin extends Plugin {
     public void setContact(PluginCall call) {
         Integer contactFieldId = call.getInt("contactFieldId");
         String contactFieldValue = call.getString("contactFieldValue");
+
+        if (contactFieldId == null || contactFieldValue == null) {
+            call.reject("Missing params");
+            return;
+        }
+
         Emarsys.setContact(contactFieldId, contactFieldValue );
+        call.resolve();
     }
 
     //Use the clearContact method to remove the device details from the contact record,
@@ -123,6 +130,7 @@ public class EmarsysSDKCustomPlugin extends Plugin {
     @PluginMethod
     public void clearContact(PluginCall call) {
         Emarsys.clearContact();
+        call.resolve();
     }
 
     @PluginMethod
