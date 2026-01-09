@@ -112,7 +112,7 @@ public class EmarsysSDKCustomPlugin extends Plugin {
 
     @PluginMethod
     public void setContact(PluginCall call) {
-        Integer contactFieldId = call.getString("contactFieldId");
+        Integer contactFieldId = call.getInt("contactFieldId");
         String contactFieldValue = call.getString("contactFieldValue");
         Emarsys.setContact(contactFieldId, contactFieldValue );
     }
