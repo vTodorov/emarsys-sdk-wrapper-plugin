@@ -14,7 +14,9 @@ import com.emarsys.Emarsys;
 import com.emarsys.config.EmarsysConfig;
 import com.emarsys.inapp.ui.InlineInAppView;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.emarsys.predict.api.model.PredictCartItem;
 import com.getcapacitor.Bridge;
+import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -157,6 +159,39 @@ public class EmarsysSDKCustomPlugin extends Plugin {
             call.resolve(ret);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @PluginMethod
+    public void trackCart(PluginCall call) {
+        try {
+            JSArray itemsArray = call.getArray("items");
+
+            if (itemsArray == null) {
+                itemsArray = new JSArray();
+            }
+
+            List<PredictCartItem> cartItems = new ArrayList<>();
+
+            for (int i = 0; i < itemsArray.length(); i++) {
+                JSONObject item = itemsArray.getJSONObject(i);
+
+                String itemId = item.getString("item");
+                int quantity = item.getInt("quantity");
+                double price = item.getDouble("price");
+
+                cartItems.add(
+                        new PredictCartItem(itemId, price, quantity)
+                );
+            }
+
+            Emarsys.getPredict().trackCart(cartItems);
+
+            call.resolve();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            call.reject("Track cart failed", e);
         }
     }
 

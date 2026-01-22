@@ -18,6 +18,12 @@ declare module '@capacitor/cli' {
   }
 }
 
+export interface CartItem {
+  item: string;
+  quantity: number;
+  price: number;
+}
+
 export interface EmarsysSDKCustomPlugin {
   /**
    * Echo test method
@@ -63,6 +69,11 @@ export interface EmarsysSDKCustomPlugin {
    * Track custom event
    */
   trackEvent(options?: { eventName: string; eventAttributes: any }): Promise<{ value: string }>;
+
+  /**
+   * Track cart event
+   */
+  trackCart(items?: {items:CartItem[]}): Promise<{ value: string }>;
 
   /**
    * Android: set Firebase push token
