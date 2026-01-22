@@ -73,7 +73,12 @@ export interface EmarsysSDKCustomPlugin {
   /**
    * Track cart event
    */
-  trackCart(items?: {items:CartItem[]}): Promise<{ value: string }>;
+  trackCart(items?: { items: CartItem[] }): Promise<{ value: string }>;
+
+  /**
+   * Track trackItemView
+   */
+  trackItemView(options: { itemId?: string }): Promise<void>;
 
   /**
    * Android: set Firebase push token

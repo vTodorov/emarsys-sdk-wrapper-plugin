@@ -195,6 +195,19 @@ public class EmarsysSDKCustomPlugin extends Plugin {
         }
     }
 
+        @PluginMethod
+        public void trackItemView(PluginCall call) {
+          try {
+            String itemId = call.getString("itemId");
+            Emarsys.getPredict().trackItemView(itemId);
+
+            call.resolve();
+              } catch (Exception e) {
+                 e.printStackTrace();
+                 call.reject("Track item view failed", e);
+             }
+        }
+
     @PluginMethod
     public void loadTheInapp(PluginCall call) {
         String inAppName = call.getString("inAppName");
