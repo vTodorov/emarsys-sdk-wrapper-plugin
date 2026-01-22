@@ -23,7 +23,7 @@ public class EmarsysPredict {
         call.resolve();
     }
     
-    public func trackCard(_ call: CAPPluginCall) {
+    public func trackCart(_ call: CAPPluginCall) {
         Emarsys.predict.trackCart(items: self.formatCardItems(items: call.getArray("items", JSObject.self) ?? []));
         call.resolve();
     }
@@ -128,7 +128,7 @@ public class EmarsysPredict {
     private func formatCardItems(items: [JSObject]?) -> [EMSCartItem] {
         var cardItems = [EMSCartItem]();
         items?.forEach { item in
-            cardItems.append(EMSCartItem(itemId: item["itemId"] as? String, price: item["price"] as! Double, quantity: item["quantity"] as! Double))
+            cardItems.append(EMSCartItem(itemId: item["item"] as? String, price: item["price"] as! Double, quantity: item["quantity"] as! Double))
         }
         return cardItems;
     }

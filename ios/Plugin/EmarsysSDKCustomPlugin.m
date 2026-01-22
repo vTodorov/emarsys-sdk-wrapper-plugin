@@ -22,4 +22,5 @@ CAP_PLUGIN(EmarsysSDKCustomPlugin, "EmarsysSDKCustom",
            CAP_PLUGIN_METHOD(getPushToken, CAPPluginReturnPromise);
 
            CAP_PLUGIN_METHOD(trackEvent, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(trackCart, CAPPluginReturnPromise);
 )

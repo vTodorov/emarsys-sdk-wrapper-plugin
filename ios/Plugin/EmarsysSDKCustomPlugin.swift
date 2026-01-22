@@ -266,8 +266,8 @@ public class EmarsysSDKCustomPlugin: CAPPlugin {
         predictHandler.trackTag(call);
     }
     
-    @objc func trackCard(_ call: CAPPluginCall) {
-        predictHandler.trackCard(call);
+    @objc func trackCart(_ call: CAPPluginCall) {
+        predictHandler.trackCart(call);
     }
     
     @objc func trackPurchase(_ call: CAPPluginCall) {
