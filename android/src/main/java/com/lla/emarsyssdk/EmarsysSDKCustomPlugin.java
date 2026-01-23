@@ -67,7 +67,7 @@ public class EmarsysSDKCustomPlugin extends Plugin {
                 .enableVerboseConsoleLogging()
                 .build();
 
-        Log.d("Emarsys", config.toString());
+        Log.d("Emarsys config", config.toString());
         Emarsys.setup(config);
 
         this.loadInappHandler();
