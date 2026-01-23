@@ -8,8 +8,8 @@ public class EmarsysPredict {
         call.resolve();
     }
     
-    public func trackCategory(_ call: CAPPluginCall) {
-        Emarsys.predict.trackCategory(categoryPath: call.getString("categoryPath")!)
+    public func trackCategoryView(_ call: CAPPluginCall) {
+        Emarsys.predict.trackCategoryView(categoryPath: call.getString("categoryPath")!)
         call.resolve();
     }
     
