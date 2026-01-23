@@ -250,8 +250,8 @@ public class EmarsysSDKCustomPlugin: CAPPlugin {
     
     // Predict
     
-    @objc func trackItem(_ call: CAPPluginCall) {
-        predictHandler.trackItem(call);
+    @objc func trackItemView(_ call: CAPPluginCall) {
+        predictHandler.trackItemView(call);
     }
     
     @objc func trackCategoryView(_ call: CAPPluginCall) {

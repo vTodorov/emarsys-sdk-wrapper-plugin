@@ -3,13 +3,13 @@ import Capacitor
 import EmarsysSDK
 
 public class EmarsysPredict {
-    public func trackItem(_ call: CAPPluginCall) {
+    public func trackItemView(_ call: CAPPluginCall) {
         Emarsys.predict.trackItem(itemId: call.getString("itemId")!)
         call.resolve();
     }
     
     public func trackCategoryView(_ call: CAPPluginCall) {
-        Emarsys.predict.trackCategoryView(categoryPath: call.getString("categoryPath")!)
+        Emarsys.predict.trackCategory(categoryPath: call.getString("categoryPath")!)
         call.resolve();
     }
     
