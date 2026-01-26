@@ -68,27 +68,37 @@ export interface EmarsysSDKCustomPlugin {
   /**
    * Track custom event
    */
-  trackEvent(options?: { eventName: string; eventAttributes: any }): Promise<{ value: string }>;
+  trackEvent(options: { eventName: string; eventAttributes: any }): Promise<{ value: string }>;
 
   /**
    * Track cart event
    */
-  trackCart(items?: { items: CartItem[] }): Promise<{ value: string }>;
+  trackCart(items: { items: CartItem[] }): Promise<{ value: string }>;
 
   /**
    * Track trackItemView
    */
-  trackItemView(options: { itemId?: string }): Promise<void>;
+  trackItemView(options: { itemId: string }): Promise<void>;
 
   /**
    * Track trackCategoryView
    */
-  trackCategoryView(options: { categoryPath?: string }): Promise<void>;
+  trackCategoryView(options: { categoryPath: string }): Promise<void>;
 
   /**
    * Track trackSearchTerm
    */
-  trackSearchTerm(options: { searchTerm?: string }): Promise<void>;
+  trackSearchTerm(options: { searchTerm: string }): Promise<void>;
+
+  /**
+   * Track trackPurchase
+   */
+  trackPurchase(options: { orderId: string; cartItems: CartItem[] }): Promise<void>;
+
+  /**
+   * Track trackTag
+   */
+  trackTag(options: { eventName: string; attributes: { [key: string]: any } }): Promise<void>;
 
   /**
    * Android: set Firebase push token

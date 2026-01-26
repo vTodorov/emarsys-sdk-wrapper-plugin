@@ -36,6 +36,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 @CapacitorPlugin(name = "EmarsysSDKCustom", permissions = @Permission(strings = {}, alias = "receive"))
 public class EmarsysSDKCustomPlugin extends Plugin {
@@ -234,6 +235,82 @@ public class EmarsysSDKCustomPlugin extends Plugin {
            call.reject("Track search term failed", e);
          }
     }
+
+   @PluginMethod
+      public void trackPurchase(PluginCall call) {
+
+           try {
+                  String orderId = call.getString("orderId");
+                  JSArray itemsArray = call.getArray("cartItems");
+
+                   if (orderId == null || orderId.isEmpty()) {
+                        call.reject("orderId is required");
+                        return;
+                   }
+
+                  if (itemsArray == null) {
+                      itemsArray = new JSArray();
+                  }
+
+                  List<PredictCartItem> cartItems = new ArrayList<>();
+
+                  for (int i = 0; i < itemsArray.length(); i++) {
+                      JSONObject item = itemsArray.getJSONObject(i);
+
+                      String itemId = item.getString("item");
+                      int quantity = item.getInt("quantity");
+                      double price = item.getDouble("price");
+
+                      cartItems.add(
+                              new PredictCartItem(itemId, price, quantity)
+                      );
+                  }
+
+                  Emarsys.getPredict().trackPurchase(orderId,cartItems);
+
+                  call.resolve();
+
+              } catch (Exception e) {
+                  e.printStackTrace();
+                  call.reject("Track purchase failed", e);
+              }
+    }
+
+  @PluginMethod
+  public void trackTag(PluginCall call) {
+      try {
+          String eventName = call.getString("eventName");
+          JSObject attributesObj = call.getObject("attributes");
+
+          if (eventName == null || eventName.isEmpty()) {
+              call.reject("eventName is required");
+              return;
+          }
+
+          Map<String, String> attributes = new HashMap<>();
+
+          if (attributesObj != null) {
+              Iterator<String> keys = attributesObj.keys();
+
+              while (keys.hasNext()) {
+                  String key = keys.next();
+                  Object value = attributesObj.get(key);
+
+                  if (value != null) {
+                      attributes.put(key, value.toString());
+                  }
+              }
+          }
+
+          Emarsys.getPredict().trackTag(eventName, attributes);
+
+          call.resolve();
+
+      } catch (Exception e) {
+          e.printStackTrace();
+          call.reject("Track tag failed", e);
+      }
+  }
 
     @PluginMethod
     public void loadTheInapp(PluginCall call) {
