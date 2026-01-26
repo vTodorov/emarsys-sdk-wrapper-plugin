@@ -13,7 +13,7 @@ public class EmarsysPredict {
         call.resolve();
     }
     
-    public func trackSearch(_ call: CAPPluginCall) {
+    public func trackSearchTerm(_ call: CAPPluginCall) {
         Emarsys.predict.trackSearch(searchTerm: call.getString("searchTerm")!)
         call.resolve();
     }

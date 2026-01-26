@@ -25,4 +25,5 @@ CAP_PLUGIN(EmarsysSDKCustomPlugin, "EmarsysSDKCustom",
            CAP_PLUGIN_METHOD(trackCart, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(trackItemView, CAPPluginReturnPromise);
            CAP_PLUGIN_METHOD(trackCategoryView, CAPPluginReturnPromise);
+           CAP_PLUGIN_METHOD(trackSearchTerm, CAPPluginReturnPromise);
 )
