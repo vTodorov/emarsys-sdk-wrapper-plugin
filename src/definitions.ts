@@ -86,6 +86,11 @@ export interface EmarsysSDKCustomPlugin {
   trackCategoryView(options: { categoryPath?: string }): Promise<void>;
 
   /**
+   * Track trackSearchTerm
+   */
+  trackSearchTerm(options: { searchTerm?: string }): Promise<void>;
+
+  /**
    * Android: set Firebase push token
    */
   setPushTokenFirebase(data: { value: string }): Promise<ITokenInitializationStatus>;

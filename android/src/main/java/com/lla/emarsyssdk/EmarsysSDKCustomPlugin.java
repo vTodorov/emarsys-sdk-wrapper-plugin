@@ -223,6 +223,19 @@ public class EmarsysSDKCustomPlugin extends Plugin {
     }
 
     @PluginMethod
+      public void trackSearchTerm(PluginCall call) {
+        try {
+         String searchTerm = call.getString("searchTerm");
+         Emarsys.getPredict().trackSearchTerm(searchTerm);
+
+         call.resolve();
+         } catch (Exception e) {
+           e.printStackTrace();
+           call.reject("Track search term failed", e);
+         }
+    }
+
+    @PluginMethod
     public void loadTheInapp(PluginCall call) {
         String inAppName = call.getString("inAppName");
 
