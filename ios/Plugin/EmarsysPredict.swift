@@ -19,8 +19,21 @@ public class EmarsysPredict {
     }
     
     public func trackTag(_ call: CAPPluginCall) {
-        Emarsys.predict.trackTag(tag: call.getString("tag")!)
-        call.resolve();
+        guard let eventName = call.getString("eventName") else {
+              call.reject("eventName is required")
+              return
+          }
+
+          let rawAttributes = call.getObject("attributes") ?? [:]
+          var attributes: [String: String] = [:]
+
+          for (key, value) in rawAttributes {
+              attributes[key] = "\(value)"
+          }
+
+          Emarsys.predict.trackTag(tag:eventName, attributes: attributes)
+
+          call.resolve()
     }
     
     public func trackCart(_ call: CAPPluginCall) {
@@ -29,7 +42,7 @@ public class EmarsysPredict {
     }
     
     public func trackPurchase(_ call: CAPPluginCall) {
-        Emarsys.predict.trackPurchase(orderId: call.getString("orderId")!, items: self.formatCardItems(items: call.getArray("items", JSObject.self) ?? []));
+        Emarsys.predict.trackPurchase(orderId: call.getString("orderId")!, items: self.formatCardItems(items: call.getArray("cartItems", JSObject.self) ?? []));
         call.resolve();
     }
     
