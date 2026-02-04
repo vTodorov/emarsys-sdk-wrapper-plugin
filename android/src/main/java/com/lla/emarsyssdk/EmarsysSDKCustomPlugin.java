@@ -98,6 +98,14 @@ public class EmarsysSDKCustomPlugin extends Plugin {
         call.resolve(ret);
     }
 
+        @PluginMethod
+        public void getPushToken(PluginCall call) {
+
+            Emarsys.getPush().getPushToken();
+
+            call.resolve();
+        }
+
     // setPushTokenFirebase
     @PluginMethod
     public void setPushTokenFirebase(PluginCall call) {
@@ -336,6 +344,11 @@ public class EmarsysSDKCustomPlugin extends Plugin {
     //    this will only listen Deeplink or AppEvent
     public void loadPushHandler() {
         Emarsys.getPush().setNotificationEventHandler((context, s, jsonObject) -> {
+             Log.d("EmarsysPush",
+                 "context=" + context +
+                 ", s=" + s +
+                 ", jsonObject=" + jsonObject
+             );
             try {
                 if (s.equals("DeepLink")) {
                     URL url = new URL(jsonObject.getString("url"));
